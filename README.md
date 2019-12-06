@@ -1,11 +1,12 @@
 # template_repository
 Just template.
 
-# How to build and run
+# How to build
 
-1. mkdir build
-2. cd build
-3. cmake ..
-4. make
-5. cd src/bin
-6. ./bin
+1. git clone --recursive https://github.com/manavrion/template_repository.git
+2. ./bootstrap.sh
+3. ./build.sh
+
+# How to test
+
+1. ./test.sh
