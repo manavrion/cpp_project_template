@@ -1,6 +1,6 @@
-#include "lib/sample.h"
-
 #include <iostream>
+
+#include "lib/sample.h"
 
 using template_repository::add;
 using template_repository::mul;
