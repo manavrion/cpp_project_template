@@ -14,3 +14,6 @@ jobs:
       uses: DoozyX/clang-format-lint-action@v0.4.1
       with:
         source: src
+    # test
+    - name: action-gtest
+      uses: CyberZHG/github-action-gtest@0.0.1
