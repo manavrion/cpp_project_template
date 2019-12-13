@@ -1,7 +1,8 @@
+cd "$(dirname "$0")"
 cd "submodules/googletest/"
 rm -rf build
 mkdir build
 cd build
-cmake ..
-make
-sudo make install
+cmake -DCMAKE_TOOLCHAIN_FILE=../../../toolchain.cmake ..
+cmake --build .
+cmake -DCMAKE_INSTALL_PREFIX=install -P cmake_install.cmake
