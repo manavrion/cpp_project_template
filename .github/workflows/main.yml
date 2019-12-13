@@ -17,3 +17,5 @@ jobs:
     # test
     - name: action-gtest
       uses: CyberZHG/github-action-gtest@0.0.1
+      with:
+        args: "-e src/unittests/unittests"
