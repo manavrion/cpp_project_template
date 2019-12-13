@@ -3,7 +3,6 @@ project(template_repository)
 
 # Google test
 enable_testing()
-set(GTEST_ROOT submodules/googletest/build/install/)
 find_package(GTest REQUIRED)
 
 # The code uses the root folder to #include
