@@ -15,6 +15,7 @@ add_library(lib STATIC ${SOURCE_FILES} ${HEADER_FILES})
 # Testing
 add_executable(lib_unittests ${UNITTEST_FILES})
 
-target_link_libraries(lib_unittests lib ${GTEST_LIBRARY} ${GTEST_MAIN_LIBRARY} pthread)
+target_link_libraries(lib_unittests lib ${GTEST_LIBRARY} ${GTEST_MAIN_LIBRARY}
+                      pthread)
 
 add_test(lib_unittests lib_unittests)
