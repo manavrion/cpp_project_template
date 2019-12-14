@@ -9,13 +9,19 @@ jobs:
 
     steps:
     - uses: actions/checkout@v1
-    # clang
+    # clang-format
     - name: clang-format lint
       uses: DoozyX/clang-format-lint-action@v0.4.1
       with:
         source: src
     # test
-    - name: action-gtest
-      uses: CyberZHG/github-action-gtest@0.0.1
-      with:
-        args: -e src/unittests/unittests
+    - name: submodule init
+      run: git submodule update --init --recursive
+    - name: bootstrap
+      run: ./bootstrap.sh
+    - name: install gtest # just fix Ci
+      run: sudo bash install_deps.sh
+    - name: build
+      run: ./build.sh
+    - name: test
+      run: ./build/src/unittests/unittests
