@@ -9,19 +9,29 @@ jobs:
 
     steps:
     - uses: actions/checkout@v1
-    # clang-format
-    - name: clang-format lint
+
+    - name: Lint with clang-format
       uses: DoozyX/clang-format-lint-action@v0.4.1
       with:
         source: src
-    # test
-    - name: submodule init
+
+    - name: Install snap
+      run: sudo bash .github/workflows/install_snap.sh
+
+    - name: Install compiler
+      run: sudo bash .github/workflows/install_compiler.sh
+
+    - name: Init submodule
       run: git submodule update --init --recursive
-    - name: bootstrap
-      run: ./bootstrap.sh
-    - name: install gtest # just fix Ci
+
+    - name: Bootstrap
+      run: .github/workflows/bootstrap.sh
+
+    - name: Install gtest # just fix Ci
       run: sudo bash install_deps.sh
-    - name: build
-      run: ./build.sh
-    - name: test
-      run: ./build/src/unittests/unittests
+
+    - name: Build
+      run: .github/workflows/build.sh
+
+    - name: Test
+      run: build/src/unittests/unittests
