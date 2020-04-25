@@ -1,5 +1,5 @@
 # Download and unpack googletest at configure time
-configure_file(cmake/GoogleBenchmark.cmake.in
+configure_file(cmake/gbenchmark.cmake.in
                google-benchmark-download/CMakeLists.txt)
 
 execute_process(
