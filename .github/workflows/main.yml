@@ -4,34 +4,21 @@ on: [push]
 
 jobs:
   build:
-
     runs-on: ubuntu-latest
 
     steps:
-    - uses: actions/checkout@v1
+      - uses: actions/checkout@v1
 
-    - name: Lint with clang-format
-      uses: DoozyX/clang-format-lint-action@v0.4.1
-      with:
-        source: src
+      - name: Lint with clang-format
+        uses: DoozyX/clang-format-lint-action@v0.4.1
+        with:
+          source: src
 
-    - name: Install snap
-      run: sudo bash .github/workflows/install_snap.sh
+      - name: Install compiler
+        run: sudo bash -c "$(wget -O - https://apt.llvm.org/llvm.sh)"
 
-    - name: Install compiler
-      run: sudo bash .github/workflows/install_compiler.sh
+      - name: Build
+        run: bash build.sh
 
-    - name: Init submodule
-      run: git submodule update --init --recursive
-
-    - name: Bootstrap
-      run: .github/workflows/bootstrap.sh
-
-    - name: Install gtest # just fix Ci
-      run: sudo bash install_deps.sh
-
-    - name: Build
-      run: .github/workflows/build.sh
-
-    - name: Test
-      run: build/src/unittests/unittests
+      - name: Test
+        run: bash test.sh
