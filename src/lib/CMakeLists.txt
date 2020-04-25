@@ -9,3 +9,5 @@ source_group("sources" FILES ${SOURCE_FILES})
 source_group("headers" FILES ${HEADER_FILES})
 
 add_library(lib STATIC ${SOURCE_FILES} ${HEADER_FILES})
+
+target_link_libraries(lib range-v3)
