@@ -14,11 +14,22 @@ Just template.
 
 ## IDE: VS Code with plugins:
 
+### C++
+
 C/C++ - ms-vscode.cpptools
+
 Clang-Format - xaver.clang-format
 
+### CMake
+
 CMake - twxs.cmake
+
 CMake Tools - ms-vscode.cmake-tools
+
 cmake-format - cheshirekow.cmake-format
 
+### Other
+
 Code Spell Checker - streetsidesoftware.code-spell-checker
+
+Markdown All in One - yzhang.markdown-all-in-one
