@@ -19,9 +19,8 @@ namespace server {
 struct request;
 
 /// Parser for incoming requests.
-class request_parser
-{
-public:
+class request_parser {
+ public:
   /// Construct ready to parse the request method.
   request_parser();
 
@@ -37,10 +36,9 @@ public:
   /// has been consumed.
   template <typename InputIterator>
   std::tuple<result_type, InputIterator> parse(request& req,
-      InputIterator begin, InputIterator end)
-  {
-    while (begin != end)
-    {
+                                               InputIterator begin,
+                                               InputIterator end) {
+    while (begin != end) {
       result_type result = consume(req, *begin++);
       if (result == good || result == bad)
         return std::make_tuple(result, begin);
@@ -48,7 +46,7 @@ public:
     return std::make_tuple(indeterminate, begin);
   }
 
-private:
+ private:
   /// Handle the next character of input.
   result_type consume(request& req, char input);
 
@@ -65,8 +63,7 @@ private:
   static bool is_digit(int c);
 
   /// The current state of the parser.
-  enum state
-  {
+  enum state {
     method_start,
     method,
     uri,
@@ -90,7 +87,7 @@ private:
   } state_;
 };
 
-} // namespace server
-} // namespace http
+}  // namespace server
+}  // namespace http
 
-#endif // HTTP_REQUEST_PARSER_HPP
+#endif  // HTTP_REQUEST_PARSER_HPP

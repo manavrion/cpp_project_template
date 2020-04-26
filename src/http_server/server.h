@@ -13,6 +13,7 @@
 
 #include <boost/asio.hpp>
 #include <string>
+
 #include "connection.h"
 #include "connection_manager.h"
 #include "request_handler.h"
@@ -21,21 +22,20 @@ namespace http {
 namespace server {
 
 /// The top-level class of the HTTP server.
-class server
-{
-public:
+class server {
+ public:
   server(const server&) = delete;
   server& operator=(const server&) = delete;
 
   /// Construct the server to listen on the specified TCP address and port, and
   /// serve up files from the given directory.
   explicit server(const std::string& address, const std::string& port,
-      const std::string& doc_root);
+                  const std::string& doc_root);
 
   /// Run the server's io_context loop.
   void run();
 
-private:
+ private:
   /// Perform an asynchronous accept operation.
   void do_accept();
 
@@ -58,7 +58,7 @@ private:
   request_handler request_handler_;
 };
 
-} // namespace server
-} // namespace http
+}  // namespace server
+}  // namespace http
 
-#endif // HTTP_SERVER_HPP
+#endif  // HTTP_SERVER_HPP

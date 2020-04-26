@@ -12,8 +12,9 @@
 #define HTTP_CONNECTION_HPP
 
 #include <array>
-#include <memory>
 #include <boost/asio.hpp>
+#include <memory>
+
 #include "reply.h"
 #include "request.h"
 #include "request_handler.h"
@@ -25,16 +26,14 @@ namespace server {
 class connection_manager;
 
 /// Represents a single connection from a client.
-class connection
-  : public std::enable_shared_from_this<connection>
-{
-public:
+class connection : public std::enable_shared_from_this<connection> {
+ public:
   connection(const connection&) = delete;
   connection& operator=(const connection&) = delete;
 
   /// Construct a connection with the given socket.
   explicit connection(boost::asio::ip::tcp::socket socket,
-      connection_manager& manager, request_handler& handler);
+                      connection_manager& manager, request_handler& handler);
 
   /// Start the first asynchronous operation for the connection.
   void start();
@@ -42,7 +41,7 @@ public:
   /// Stop all asynchronous operations associated with the connection.
   void stop();
 
-private:
+ private:
   /// Perform an asynchronous read operation.
   void do_read();
 
@@ -73,7 +72,7 @@ private:
 
 typedef std::shared_ptr<connection> connection_ptr;
 
-} // namespace server
-} // namespace http
+}  // namespace server
+}  // namespace http
 
-#endif // HTTP_CONNECTION_HPP
+#endif  // HTTP_CONNECTION_HPP

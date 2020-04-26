@@ -16,13 +16,12 @@
 namespace http {
 namespace server {
 
-struct header
-{
+struct header {
   std::string name;
   std::string value;
 };
 
-} // namespace server
-} // namespace http
+}  // namespace server
+}  // namespace http
 
-#endif // HTTP_HEADER_HPP
+#endif  // HTTP_HEADER_HPP

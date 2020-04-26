@@ -12,6 +12,7 @@
 #define HTTP_CONNECTION_MANAGER_HPP
 
 #include <set>
+
 #include "connection.h"
 
 namespace http {
@@ -19,9 +20,8 @@ namespace server {
 
 /// Manages open connections so that they may be cleanly stopped when the server
 /// needs to shut down.
-class connection_manager
-{
-public:
+class connection_manager {
+ public:
   connection_manager(const connection_manager&) = delete;
   connection_manager& operator=(const connection_manager&) = delete;
 
@@ -37,12 +37,12 @@ public:
   /// Stop all connections.
   void stop_all();
 
-private:
+ private:
   /// The managed connections.
   std::set<connection_ptr> connections_;
 };
 
-} // namespace server
-} // namespace http
+}  // namespace server
+}  // namespace http
 
-#endif // HTTP_CONNECTION_MANAGER_HPP
+#endif  // HTTP_CONNECTION_MANAGER_HPP

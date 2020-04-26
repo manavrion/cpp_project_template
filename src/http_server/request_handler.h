@@ -20,9 +20,8 @@ struct reply;
 struct request;
 
 /// The common handler for all incoming requests.
-class request_handler
-{
-public:
+class request_handler {
+ public:
   request_handler(const request_handler&) = delete;
   request_handler& operator=(const request_handler&) = delete;
 
@@ -32,7 +31,7 @@ public:
   /// Handle a request and produce a reply.
   void handle_request(const request& req, reply& rep);
 
-private:
+ private:
   /// The directory containing the files to be served.
   std::string doc_root_;
 
@@ -41,7 +40,7 @@ private:
   static bool url_decode(const std::string& in, std::string& out);
 };
 
-} // namespace server
-} // namespace http
+}  // namespace server
+}  // namespace http
 
-#endif // HTTP_REQUEST_HANDLER_HPP
+#endif  // HTTP_REQUEST_HANDLER_HPP
