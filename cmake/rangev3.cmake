@@ -19,11 +19,6 @@ if(result)
   message(FATAL_ERROR "Build step for range-v3 failed: ${result}")
 endif()
 
-# Prevent overriding the parent project's compiler/linker settings on Windows
-set(gtest_force_shared_crt
-    ON
-    CACHE BOOL "" FORCE)
-
 # Add range-v3 directly to our build. This defines the gtest and gtest_main
 # targets.
 add_subdirectory(${CMAKE_CURRENT_BINARY_DIR}/range-v3-src
