@@ -36,7 +36,7 @@ jobs:
       - name: Bootstrap
         run: sudo python .github/workflows/bootstrap.py ${{ matrix.toolchain }}
 
-      - name: Configure (${{ matrix.build_type }}) with (${{ matrix.toolchain }})
+      - name: Configure ${{ matrix.build_type }} with ${{ matrix.toolchain }}
         run: cmake -S . -B .build -DCMAKE_TOOLCHAIN_FILE="toolchain/${{ matrix.toolchain }}.cmake" -DCMAKE_BUILD_TYPE=${{ matrix.build_type }}
 
       - name: Build
