@@ -1,0 +1,7 @@
+# Build
+set(CMAKE_BUILD_TYPE Debug)
+
+# Options
+set(CPP_PROJECT_TEMPALTE_TESTS
+    ON
+    CACHE BOOL "" FORCE)

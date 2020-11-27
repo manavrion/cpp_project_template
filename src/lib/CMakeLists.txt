@@ -10,4 +10,6 @@ source_group("headers" FILES ${HEADER_FILES})
 
 add_library(lib STATIC ${SOURCE_FILES} ${HEADER_FILES})
 
-target_link_libraries(lib range-v3)
+target_compile_features(lib PUBLIC cxx_std_20)
+
+# target_link_libraries(lib range-v3)

@@ -1,26 +1,31 @@
-cmake_minimum_required(VERSION 3.8)
+cmake_minimum_required(VERSION 3.14)
 
-include(toolchain.cmake)
+project(cpp_project_template LANGUAGES CXX)
 
-project(template_repository)
+# Options
+option(CPP_PROJECT_TEMPALTE_BENCHMARKS "Build benchmarks" OFF)
+option(CPP_PROJECT_TEMPALTE_EXAMPLES "Build examples" OFF)
+option(CPP_PROJECT_TEMPALTE_TESTS "Build tests" OFF)
 
 # Export dependencies
 list(APPEND CMAKE_MODULE_PATH "${CMAKE_CURRENT_SOURCE_DIR}/cmake")
 set(CMAKE_EXPORT_COMPILE_COMMANDS ON) # Export compilation data-base
 set_property(GLOBAL PROPERTY USE_FOLDERS ON)
 
+# CCache
+include(ccache)
+
 # Google test
-include(gtest)
-enable_testing()
+if(CPP_PROJECT_TEMPALTE_TESTS)
+  include(googletest)
+  enable_testing()
+endif()
 
 # Google benchmark
-include(gbenchmark)
-
-# range-v3
-include(rangev3)
-
-# boost
-include(boost)
+if(SEGMENT_TREE_BENCHMARKS)
+  include(benchmark)
+  enable_testing()
+endif()
 
 # The code uses the root folder to #include
 include_directories("src/")

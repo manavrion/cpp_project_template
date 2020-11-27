@@ -1,24 +1,37 @@
-name: CI
+name: main
 
 on: [push]
 
 jobs:
   build:
-    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        os: [ubuntu-latest]
+        tool: [
+          linux_clang,
+        # linux_clang_asan,
+        # linux_clang_benchmark,
+        # linux_clang_lsan,
+        # linux_clang_msan,
+        # linux_clang_tsan,
+        # linux_clang_ubsan,
+          linux_gcc]
+        include:
+          - os: macos-latest
+            tool: macos_clang
+          - os: windows-latest
+            tool: windows_msvc
+
+    runs-on: ${{ matrix.os }}
 
     steps:
-      - uses: actions/checkout@v1
+      - uses: actions/checkout@v2
 
-      - name: Lint with clang-format
-        uses: DoozyX/clang-format-lint-action@v0.4.1
-        with:
-          source: src
-
-      - name: Install compiler
-        run: sudo bash -c "$(wget -O - https://apt.llvm.org/llvm.sh)"
+      - name: Configure
+        run: cmake -S . -B .build -DCMAKE_TOOLCHAIN_FILE="toolchain/${{ matrix.tool }}.cmake"
 
       - name: Build
-        run: bash build.sh
+        run: cmake --build .build --parallel 8
 
       - name: Test
-        run: bash test.sh
+        run: (cd .build && ctest --extra-verbose)
