@@ -19,11 +19,14 @@ jobs:
         # - linux_clang_tsan
         # - linux_clang_ubsan
           - linux_gcc
+        sudo:
+          - sudo
         include:
           - os: macos-latest
             toolchain: macos_clang
           - os: windows-latest
             toolchain: windows_msvc
+            sudo:
         # - os: ubuntu-latest
         #   toolchain: linux_clang_benchmark
         #   build_type: Release
@@ -33,10 +36,10 @@ jobs:
     steps:
       - uses: actions/checkout@v2
 
-      - name: Bootstrap
-        run: sudo python .github/workflows/bootstrap.py ${{ matrix.toolchain }}
+      - name: Bootstrap toolchain ${{ matrix.toolchain }}
+        run: ${{ matrix.sudo }} python .github/workflows/bootstrap.py ${{ matrix.toolchain }}
 
-      - name: Configure ${{ matrix.build_type }} with ${{ matrix.toolchain }}
+      - name: Configure ${{ matrix.build_type }}
         run: cmake -S . -B .build -DCMAKE_TOOLCHAIN_FILE="toolchain/${{ matrix.toolchain }}.cmake" -DCMAKE_BUILD_TYPE=${{ matrix.build_type }}
 
       - name: Build
