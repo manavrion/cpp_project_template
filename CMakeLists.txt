@@ -27,6 +27,9 @@ if(SEGMENT_TREE_BENCHMARKS)
   enable_testing()
 endif()
 
+# range-v3
+include(range_v3)
+
 # The code uses the root folder to #include
 include_directories("src/")
 
