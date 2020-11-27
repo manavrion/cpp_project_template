@@ -1,9 +1,5 @@
-# Build
-set(CMAKE_BUILD_TYPE Release)
-
-# Compiler
-set(CMAKE_C_COMPILER clang-9)
-set(CMAKE_CXX_COMPILER clang++-9)
+list(APPEND CMAKE_MODULE_PATH "${CMAKE_CURRENT_SOURCE_DIR}/toolchain")
+include(linux_clang)
 
 # Options
 set(CPP_PROJECT_TEMPALTE_BENCHMARKS
