@@ -6,29 +6,38 @@ jobs:
   build:
     strategy:
       matrix:
-        os: [ubuntu-latest]
-        tool: [
-          linux_clang,
-        # linux_clang_asan,
-        # linux_clang_benchmark,
-        # linux_clang_lsan,
-        # linux_clang_msan,
-        # linux_clang_tsan,
-        # linux_clang_ubsan,
-          linux_gcc]
+        build_type:
+          - Debug
+        os:
+          - ubuntu-latest
+        toolchain:
+          - linux_clang
+        # - linux_clang_asan
+        # - linux_clang_benchmark
+        # - linux_clang_lsan
+        # - linux_clang_msan
+        # - linux_clang_tsan
+        # - linux_clang_ubsan
+          - linux_gcc
         include:
           - os: macos-latest
-            tool: macos_clang
+            toolchain: macos_clang
           - os: windows-latest
-            tool: windows_msvc
+            toolchain: windows_msvc
+        # - os: ubuntu-latest
+        #   toolchain: linux_clang_benchmark
+        #   build_type: Release
 
     runs-on: ${{ matrix.os }}
 
     steps:
       - uses: actions/checkout@v2
 
-      - name: Configure
-        run: cmake -S . -B .build -DCMAKE_TOOLCHAIN_FILE="toolchain/${{ matrix.tool }}.cmake"
+    # - name: Boot
+    #   run: boot.sh
+
+      - name: Configure (${{ matrix.build_type }}) with (${{ matrix.toolchain }})
+        run: cmake -S . -B .build -DCMAKE_TOOLCHAIN_FILE="toolchain/${{ matrix.toolchain }}.cmake" -DCMAKE_BUILD_TYPE=${{ matrix.build_type }}
 
       - name: Build
         run: cmake --build .build --parallel 8
