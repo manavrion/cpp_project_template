@@ -12,7 +12,7 @@ jobs:
           - linux_clang
           - linux_clang_asan
           - linux_clang_lsan
-          - linux_clang_msan
+        # - linux_clang_msan
           - linux_clang_tsan
           - linux_clang_ubsan
           - linux_gcc
