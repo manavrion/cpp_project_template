@@ -19,8 +19,6 @@ jobs:
           - linux_gcc
         build_type:
           - Debug
-        sudo_command:
-          - sudo
         include:
           - os: macos-latest
             toolchain: macos_clang
@@ -38,7 +36,8 @@ jobs:
       - uses: actions/checkout@v2
 
       - name: Bootstrap toolchain ${{ matrix.toolchain }}
-        run: ${{ matrix.sudo_command }} python .github/workflows/bootstrap.py ${{ matrix.toolchain }}
+        if: ${{ matrix.os == 'ubuntu-latest' }}
+        run: sudo python .github/workflows/bootstrap_ubuntu.py ${{ matrix.toolchain }}
 
       - name: Configure ${{ matrix.build_type }}
         run: cmake -S . -B .build -DCMAKE_TOOLCHAIN_FILE="toolchain/${{ matrix.toolchain }}.cmake" -DCMAKE_BUILD_TYPE=${{ matrix.build_type }}
