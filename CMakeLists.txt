@@ -15,22 +15,6 @@ set_property(GLOBAL PROPERTY USE_FOLDERS ON)
 # CCache
 include(ccache)
 
-# Google test
-if(CPP_PROJECT_TEMPALTE_TESTS)
-  include(googletest)
-  enable_testing()
-endif()
-
-# Google benchmark
-if(SEGMENT_TREE_BENCHMARKS)
-  include(benchmark)
-  enable_testing()
-endif()
-
-# range-v3
-include(range_v3)
-
-# The code uses the root folder to #include
-include_directories("src/")
-
-add_subdirectory(src)
+# Add sub templates. You can paste project_templates/*/CMakeLists.txt here for
+# simple projects.
+add_subdirectory(project_templates/header_only_library)
