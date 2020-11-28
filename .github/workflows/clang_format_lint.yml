@@ -1,0 +1,19 @@
+name: clang_format_lint
+
+on: [push]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v2
+
+      # Special step for install clang format 12.
+      - name: Bootstrap
+        run: sudo python .github/workflows/bootstrap.py clang-format
+
+      - name: Clang-format lint
+      uses: DoozyX/clang-format-lint-action@v0.11
+      with:
+        clangFormatVersion: 12

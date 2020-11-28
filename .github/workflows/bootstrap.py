@@ -10,6 +10,15 @@ print('Run on - ' + system)
 
 sys.stdout.flush()
 
+if toolchain == 'clang-format':
+  print('Install clang-format')
+  sys.stdout.flush()
+  os.system('wget -O - https://apt.llvm.org/llvm-snapshot.gpg.key | sudo apt-key add -')
+  os.system('apt-add-repository "deb http://apt.llvm.org/bionic/ llvm-toolchain-bionic main"')
+  os.system('apt update')
+  os.system('apt install clang-format-12')
+  exit(0)
+
 if system == 'Linux':
   if 'clang' in toolchain and 'gcc' in toolchain:
     print('Broken toolchain!')

@@ -37,7 +37,7 @@ jobs:
       # Special step for ubuntu-latest.
       - name: Bootstrap toolchain ${{ matrix.toolchain }}
         if: ${{ matrix.os == 'ubuntu-latest' }}
-        run: sudo python .github/workflows/bootstrap_ubuntu.py ${{ matrix.toolchain }}
+        run: sudo python .github/workflows/bootstrap.py ${{ matrix.toolchain }}
 
       - name: Configure ${{ matrix.build_type }}
         run: cmake -S . -B .build -DCMAKE_TOOLCHAIN_FILE="toolchain/${{ matrix.toolchain }}.cmake" -DCMAKE_BUILD_TYPE=${{ matrix.build_type }}
