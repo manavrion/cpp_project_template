@@ -21,5 +21,6 @@ set_property(GLOBAL PROPERTY USE_FOLDERS ON)
 include(ccache)
 
 # Add sub templates. You can paste project_templates/*/CMakeLists.txt here for
-# simple projects.
+# simple projects and move related files.
 add_subdirectory(project_templates/header_only_library)
+add_subdirectory(project_templates/static_library)

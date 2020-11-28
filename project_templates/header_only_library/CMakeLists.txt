@@ -11,13 +11,12 @@ endif()
 # Google benchmark
 if(CPP_PROJECT_TEMPALTE_BENCHMARKS)
   include(benchmark)
-  enable_testing()
 endif()
 
 # Range-v3
 include(range_v3)
 
-# Library definition
+# Header only library definition
 add_library(header_only_library INTERFACE)
 add_library(manavrion::header_only_library ALIAS header_only_library)
 target_include_directories(

@@ -7,10 +7,14 @@
 
 namespace header_only_library_sample {
 
-inline int64_t add(const int64_t a, const int64_t b) { return a + b; }
-inline int64_t mul(const int64_t a, const int64_t b) { return a * b; }
+[[nodiscard]] inline int64_t add(const int64_t a, const int64_t b) {
+  return a + b;
+}
+[[nodiscard]] inline int64_t mul(const int64_t a, const int64_t b) {
+  return a * b;
+}
 
-inline int64_t add_first3(const std::vector<int64_t>& xs) {
+[[nodiscard]] inline int64_t add_first3(const std::vector<int64_t>& xs) {
   return ranges::accumulate(xs | ranges::views::take(3), int64_t{});
 }
 
