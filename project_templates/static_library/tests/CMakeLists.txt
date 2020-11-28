@@ -1,0 +1,3 @@
+add_executable(static_library_tests test.cc)
+target_link_libraries(static_library_tests static_library gtest gtest_main)
+add_test(static_library_tests static_library_tests)

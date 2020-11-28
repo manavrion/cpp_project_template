@@ -1,28 +1,27 @@
-cmake_minimum_required(VERSION 3.8)
+cmake_minimum_required(VERSION 3.14)
 
-include(toolchain.cmake)
+project(cpp_project_template LANGUAGES CXX)
 
-project(template_repository)
+# Options
+option(CPP_PROJECT_TEMPALTE_BENCHMARKS "Build benchmarks" OFF)
+option(CPP_PROJECT_TEMPALTE_EXAMPLES "Build examples" OFF)
+option(CPP_PROJECT_TEMPALTE_TESTS "Build tests" OFF)
+
+# Enable ctest
+if(CPP_PROJECT_TEMPALTE_TESTS)
+  enable_testing()
+endif()
 
 # Export dependencies
 list(APPEND CMAKE_MODULE_PATH "${CMAKE_CURRENT_SOURCE_DIR}/cmake")
 set(CMAKE_EXPORT_COMPILE_COMMANDS ON) # Export compilation data-base
 set_property(GLOBAL PROPERTY USE_FOLDERS ON)
 
-# Google test
-include(gtest)
-enable_testing()
+# CCache
+include(ccache)
 
-# Google benchmark
-include(gbenchmark)
-
-# range-v3
-include(rangev3)
-
-# boost
-include(boost)
-
-# The code uses the root folder to #include
-include_directories("src/")
-
-add_subdirectory(src)
+# Add sub templates. You can paste project_templates/*/CMakeLists.txt here for
+# simple projects and move related files.
+add_subdirectory(project_templates/executable)
+add_subdirectory(project_templates/header_only_library)
+add_subdirectory(project_templates/static_library)

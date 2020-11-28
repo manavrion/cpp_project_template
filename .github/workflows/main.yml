@@ -1,24 +1,49 @@
-name: CI
+name: main
 
 on: [push]
 
 jobs:
   build:
-    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        os:
+          - ubuntu-latest
+        toolchain:
+          - linux_clang
+          - linux_clang_asan
+          - linux_clang_lsan
+        # - linux_clang_msan
+          - linux_clang_tsan
+          - linux_clang_ubsan
+          - linux_gcc
+        build_type:
+          - Debug
+        include:
+          - os: macos-latest
+            toolchain: macos_clang
+            build_type: Debug
+          - os: windows-latest
+            toolchain: windows_msvc
+            build_type: Debug
+          - os: ubuntu-latest
+            toolchain: linux_clang
+            build_type: Release
+
+    runs-on: ${{ matrix.os }}
 
     steps:
-      - uses: actions/checkout@v1
+      - uses: actions/checkout@v2
 
-      - name: Lint with clang-format
-        uses: DoozyX/clang-format-lint-action@v0.4.1
-        with:
-          source: src
+      # Special step for ubuntu-latest.
+      - name: Bootstrap toolchain ${{ matrix.toolchain }}
+        if: ${{ matrix.os == 'ubuntu-latest' }}
+        run: sudo python .github/workflows/bootstrap.py ${{ matrix.toolchain }}
 
-      - name: Install compiler
-        run: sudo bash -c "$(wget -O - https://apt.llvm.org/llvm.sh)"
+      - name: Configure ${{ matrix.build_type }}
+        run: cmake -S . -B .build -DCMAKE_TOOLCHAIN_FILE="toolchain/${{ matrix.toolchain }}.cmake" -DCMAKE_BUILD_TYPE=${{ matrix.build_type }}
 
       - name: Build
-        run: bash build.sh
+        run: cmake --build .build --parallel 8
 
       - name: Test
-        run: bash test.sh
+        run: (cd .build && ctest --extra-verbose)
