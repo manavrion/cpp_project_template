@@ -6,16 +6,16 @@ using header_only_library_sample::add;
 using header_only_library_sample::add_first3;
 using header_only_library_sample::mul;
 
-TEST(SampleTest, Add) {
+TEST(HeaderOnlyLibrarySampleTest, Add) {
   EXPECT_EQ(add(1, 2), 3);
   EXPECT_EQ(add(2, 2), 4);
 }
 
-TEST(SampleTest, Mul) {
+TEST(HeaderOnlyLibrarySampleTest, Mul) {
   EXPECT_EQ(mul(1, 2), 2);
   EXPECT_EQ(mul(2, 2), 4);
 }
 
-TEST(SampleTest, AddFirst3) {
+TEST(HeaderOnlyLibrarySampleTest, AddFirst3) {
   EXPECT_EQ(add_first3(std::vector<int64_t>{1, 1, 1, 5}), 3);
 }

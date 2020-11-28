@@ -7,6 +7,11 @@ option(CPP_PROJECT_TEMPALTE_BENCHMARKS "Build benchmarks" OFF)
 option(CPP_PROJECT_TEMPALTE_EXAMPLES "Build examples" OFF)
 option(CPP_PROJECT_TEMPALTE_TESTS "Build tests" OFF)
 
+# Enable ctest
+if(CPP_PROJECT_TEMPALTE_TESTS)
+  enable_testing()
+endif()
+
 # Export dependencies
 list(APPEND CMAKE_MODULE_PATH "${CMAKE_CURRENT_SOURCE_DIR}/cmake")
 set(CMAKE_EXPORT_COMPILE_COMMANDS ON) # Export compilation data-base

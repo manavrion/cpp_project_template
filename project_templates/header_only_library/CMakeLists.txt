@@ -27,11 +27,14 @@ target_include_directories(
 target_link_libraries(header_only_library INTERFACE range-v3)
 target_compile_features(header_only_library INTERFACE cxx_std_17)
 
-# Optional targets if(CPP_PROJECT_TEMPALTE_BENCHMARKS)
-# add_subdirectory(benchmarks) endif()
-#
-# if(CPP_PROJECT_TEMPALTE_EXAMPLES)
-# add_subdirectory(examples) endif()
+# Optional targets
+if(CPP_PROJECT_TEMPALTE_BENCHMARKS)
+  add_subdirectory(benchmarks)
+endif()
+
+if(CPP_PROJECT_TEMPALTE_EXAMPLES)
+  add_subdirectory(examples)
+endif()
 
 if(CPP_PROJECT_TEMPALTE_TESTS)
   add_subdirectory(tests)

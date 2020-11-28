@@ -1,7 +1,0 @@
-list(APPEND CMAKE_MODULE_PATH "${CMAKE_CURRENT_SOURCE_DIR}/toolchain")
-include(linux_clang)
-
-# Options
-set(CPP_PROJECT_TEMPALTE_BENCHMARKS
-    ON
-    CACHE BOOL "" FORCE)
