@@ -24,12 +24,18 @@ target_include_directories(
   static_library
   INTERFACE $<BUILD_INTERFACE:${CMAKE_CURRENT_SOURCE_DIR}/include>
             $<INSTALL_INTERFACE:include>)
-target_link_libraries(static_library STATIC range-v3)
-target_compile_features(static_library PUBLIC cxx_std_17)
+target_link_libraries(static_library range-v3)
+target_compile_features(static_library PUBLIC cxx_std_20)
 
-# Optional targets if(CPP_PROJECT_TEMPALTE_BENCHMARKS)
-# add_subdirectory(benchmarks) endif()
-#
-# if(CPP_PROJECT_TEMPALTE_EXAMPLES) add_subdirectory(examples) endif()
-#
-# if(CPP_PROJECT_TEMPALTE_TESTS) add_subdirectory(tests) endif()
+# Optional targets
+if(CPP_PROJECT_TEMPALTE_BENCHMARKS)
+  add_subdirectory(benchmarks)
+endif()
+
+if(CPP_PROJECT_TEMPALTE_EXAMPLES)
+  add_subdirectory(examples)
+endif()
+
+if(CPP_PROJECT_TEMPALTE_TESTS)
+  add_subdirectory(tests)
+endif()
