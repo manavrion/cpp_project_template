@@ -55,3 +55,9 @@ Copy the content of `~/.ssh/id_ed25519.pub` to https://github.com/settings/ssh/n
 ```
 sudo snap install cmake --classic
 ```
+
+4. Install compiler.
+```
+sudo apt-get install clang
+```
+
