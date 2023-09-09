@@ -1,4 +1,4 @@
-# template_repository
+# С++ Project Template
 Just template.
 
 # How to build
@@ -39,3 +39,19 @@ cmake-format - cheshirekow.cmake-format
 Code Spell Checker - streetsidesoftware.code-spell-checker
 
 Markdown All in One - yzhang.markdown-all-in-one
+
+# Setup development on Ubuntu
+
+1. Generate a new SSH key.
+```
+ssh-keygen -t ed25519 -C "<your_email@example.com>"
+```
+[Reference.](https://docs.github.com/en/authentication/connecting-to-github-with-ssh/generating-a-new-ssh-key-and-adding-it-to-the-ssh-agent#generating-a-new-ssh-key)
+
+2. Add the SSH key to your GitHub account as an Authentication Key.
+Copy the content of `~/.ssh/id_ed25519.pub` to https://github.com/settings/ssh/new form.
+
+3. Install cmake.
+```
+sudo snap install cmake --classic
+```
