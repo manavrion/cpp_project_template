@@ -40,6 +40,12 @@ Code Spell Checker - streetsidesoftware.code-spell-checker
 
 Markdown All in One - yzhang.markdown-all-in-one
 
+# Getting Start
+
+```
+>Dev Containers: Open Folder in Container...
+```
+
 # Setup development on Ubuntu
 
 1. Generate a new SSH key.
