@@ -40,30 +40,37 @@ Code Spell Checker - streetsidesoftware.code-spell-checker
 
 Markdown All in One - yzhang.markdown-all-in-one
 
-# Getting Start
+# Instant start using Codespaces
 
+This repository provides integration with Codespaces.
+
+Just click the `<> Code` button, then click the `Codespaces` tab and then click the `Create codespace on main` button.
+
+All things needed for development will be configured automatically.
+
+Refer to `Getting started with Visual Studio Code` if you want the same experience without limitations.
+
+References:
+ - [Codespaces](https://github.com/features/codespaces)
+ - [Creating a codespace for a repository](https://docs.github.com/en/codespaces/developing-in-codespaces/creating-a-codespace-for-a-repository#creating-a-codespace-for-a-repository)
+
+# Getting started with Visual Studio Code
+
+1. Install Visual Studio Code with the following extensions:
+  ms-vscode-remote.remote-containers (mandatory)
+  ms-vscode-remote.remote-wsl (if you are using WSL on Windows)
+
+2. Install GitHub CLI.
+  https://github.com/cli/cli#installation
+
+3. Login into your GitHub account using HTTPS:
+```
+gh auth login
+```
+
+4. Clone this repository or your own fork to a folder.
+
+5. Open the folder using the following VSC command:
 ```
 >Dev Containers: Open Folder in Container...
 ```
-
-# Setup development on Ubuntu
-
-1. Generate a new SSH key.
-```
-ssh-keygen -t ed25519 -C "<your_email@example.com>"
-```
-[Reference.](https://docs.github.com/en/authentication/connecting-to-github-with-ssh/generating-a-new-ssh-key-and-adding-it-to-the-ssh-agent#generating-a-new-ssh-key)
-
-2. Add the SSH key to your GitHub account as an Authentication Key.
-Copy the content of `~/.ssh/id_ed25519.pub` to https://github.com/settings/ssh/new form.
-
-3. Install cmake.
-```
-sudo snap install cmake --classic
-```
-
-4. Install compiler.
-```
-sudo apt-get install clang
-```
-
