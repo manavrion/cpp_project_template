@@ -10,7 +10,7 @@ RUN apt -y install gcc-12
 RUN apt -y install g++-12
 RUN apt -y install gdb
 
-# Prerequisites for the Ubuntu Clang toolchain.
+# Prerequisites for the Ubuntu LLVM toolchain.
 RUN apt -y install clang-15
 RUN apt -y install lld-15
 
