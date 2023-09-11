@@ -1,15 +1,15 @@
 FROM ubuntu:latest
 
-RUN apt-get update
+RUN apt update
 
 # Prerequisite for VS Code's Source Control tool.
-RUN apt-get -y install git
+RUN apt -y install git
 
 # Prerequisites for the Linux GCC kit.
-RUN apt-get -y install gcc
-RUN apt-get -y install g++
-RUN apt-get -y install gdb
+RUN apt -y install gcc-12
+RUN apt -y install g++-12
+RUN apt -y install gdb
 
 # Prerequisites for building.
-RUN apt-get -y install make
-RUN apt-get -y install cmake
+RUN apt -y install make
+RUN apt -y install cmake
