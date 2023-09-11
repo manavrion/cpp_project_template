@@ -17,12 +17,12 @@ if system == 'Linux':
   if 'llvm' in toolchain:
     print('Install llvm')
     sys.stdout.flush()
-    os.system('apt update')
-    os.system('apt install clang-15')
-    os.system('apt install lld-15')
+    os.system('apt -y install lsb-release wget software-properties-common gnupg')
+    os.system('wget https://apt.llvm.org/llvm.sh')
+    os.system('chmod +x llvm.sh')
+    os.system('yes '' | ./llvm.sh 18')
   if 'gcc' in toolchain:
     print('Install gcc')
     sys.stdout.flush()
     os.system('apt update')
-    os.system('apt install gcc-12')
-    os.system('apt install g++-12')
+    os.system('apt -y install gcc-12 g++-12')
