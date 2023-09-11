@@ -9,13 +9,13 @@ jobs:
         os:
           - ubuntu-latest
         toolchain:
-          - linux_clang
-          - linux_clang_asan
-          - linux_clang_lsan
-        # - linux_clang_msan
-          - linux_clang_tsan
-          - linux_clang_ubsan
-          - linux_gcc
+          - ubuntu_clang
+        #  - linux_clang_asan
+        #  - linux_clang_lsan
+        #  - linux_clang_msan
+        #  - linux_clang_tsan
+        #  - linux_clang_ubsan
+          - ubuntu_gcc
         build_type:
           - Debug
         include:
@@ -26,7 +26,7 @@ jobs:
             toolchain: windows_msvc
             build_type: Debug
           - os: ubuntu-latest
-            toolchain: linux_clang
+            toolchain: ubuntu_clang
             build_type: Release
 
     runs-on: ${{ matrix.os }}

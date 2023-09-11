@@ -29,5 +29,5 @@ if system == 'Linux':
     print('Install gcc')
     sys.stdout.flush()
     os.system('apt update')
-    os.system('apt install gcc-10')
-    os.system('apt install g++-10')
+    os.system('apt install gcc-12')
+    os.system('apt install g++-12')
