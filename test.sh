@@ -1,3 +1,3 @@
 cd "$(dirname "$0")"
-cd .build
+cd build
 ctest --extra-verbose

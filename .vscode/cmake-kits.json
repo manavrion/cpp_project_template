@@ -1,0 +1,6 @@
+[
+    {
+        "name": "Linux GCC",
+        "toolchainFile": "toolchain/linux_gcc.cmake"
+    }
+]
