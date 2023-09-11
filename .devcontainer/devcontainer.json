@@ -6,7 +6,9 @@
         "vscode": {
             "extensions": [
                 // C/C++
-                "ms-vscode.cpptools"
+                "ms-vscode.cpptools",
+                // CMake Tools
+                "ms-vscode.cmake-tools"
             ]
         }
     }
