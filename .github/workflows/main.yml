@@ -9,24 +9,24 @@ jobs:
         os:
           - ubuntu-latest
         toolchain:
-          - ubuntu_clang
-        #  - linux_clang_asan
-        #  - linux_clang_lsan
-        #  - linux_clang_msan
-        #  - linux_clang_tsan
-        #  - linux_clang_ubsan
+          - ubuntu_llvm
+        #  - linux_llvm_asan
+        #  - linux_llvm_lsan
+        #  - linux_llvm_msan
+        #  - linux_llvm_tsan
+        #  - linux_llvm_ubsan
           - ubuntu_gcc
         build_type:
           - Debug
         include:
           - os: macos-latest
-            toolchain: macos_clang
+            toolchain: macos_llvm
             build_type: Debug
           - os: windows-latest
             toolchain: windows_msvc
             build_type: Debug
           - os: ubuntu-latest
-            toolchain: ubuntu_clang
+            toolchain: ubuntu_llvm
             build_type: Release
 
     runs-on: ${{ matrix.os }}
