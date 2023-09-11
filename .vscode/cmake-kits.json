@@ -1,6 +1,6 @@
 [
     {
-        "name": "Linux GCC",
-        "toolchainFile": "toolchain/linux_gcc.cmake"
+        "name": "Ubuntu GCC",
+        "toolchainFile": "toolchain/ubuntu_gcc.cmake"
     }
 ]
