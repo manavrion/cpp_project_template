@@ -20,6 +20,13 @@ set_property(GLOBAL PROPERTY USE_FOLDERS ON)
 # CCache
 include(ccache)
 
+# Print all variables for debug purposes.
+get_cmake_property(_variableNames VARIABLES)
+list (SORT _variableNames)
+foreach (_variableName ${_variableNames})
+  message(STATUS "Dynamic variable ${_variableName}=${${_variableName}}")
+endforeach()
+
 # Add sub templates. You can paste project_templates/*/CMakeLists.txt here for
 # simple projects and move related files.
 add_subdirectory(project_templates/executable)
