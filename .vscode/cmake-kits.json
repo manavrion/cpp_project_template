@@ -8,6 +8,10 @@
         "toolchainFile": "toolchain/ubuntu_llvm.cmake"
     },
     {
+        "name": "Ubuntu LLVM + libcpp",
+        "toolchainFile": "toolchain/ubuntu_llvm_libcpp.cmake"
+    },
+    {
         "name": "Ubuntu LLVM + ASAN",
         "toolchainFile": "toolchain/ubuntu_llvm_asan.cmake"
     },

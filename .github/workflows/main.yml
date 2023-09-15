@@ -9,12 +9,13 @@ jobs:
         os:
           - ubuntu-latest
         toolchain:
+          - ubuntu_llvm
+          - ubuntu_llvm_libcpp
           - ubuntu_llvm_asan
           - ubuntu_llvm_lsan
           - ubuntu_llvm_msan
         #  - linux_llvm_tsan
         #  - linux_llvm_ubsan
-          - ubuntu_gcc
         build_type:
           - Debug
         include:
@@ -25,7 +26,7 @@ jobs:
             toolchain: windows_msvc
             build_type: Debug
           - os: ubuntu-latest
-            toolchain: ubuntu_llvm
+            toolchain: ubuntu_gcc
             build_type: Debug
 
     runs-on: ${{ matrix.os }}

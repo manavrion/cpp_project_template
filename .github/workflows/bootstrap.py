@@ -21,6 +21,8 @@ if system == 'Linux':
     os.system('wget https://apt.llvm.org/llvm.sh')
     os.system('chmod +x llvm.sh')
     os.system('yes '' | ./llvm.sh 18')
+    if 'libcpp' in toolchain:
+      os.system('apt -y install libc++-18-dev libc++abi-18-dev')
   if 'gcc' in toolchain:
     print('Install gcc')
     sys.stdout.flush()
