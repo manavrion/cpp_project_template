@@ -11,7 +11,7 @@ jobs:
         toolchain:
           - ubuntu_llvm_asan
           - ubuntu_llvm_lsan
-        #  - linux_llvm_msan
+          - ubuntu_llvm_msan
         #  - linux_llvm_tsan
         #  - linux_llvm_ubsan
           - ubuntu_gcc
