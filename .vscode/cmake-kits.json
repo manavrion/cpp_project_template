@@ -10,5 +10,9 @@
     {
         "name": "Ubuntu LLVM + ASAN",
         "toolchainFile": "toolchain/ubuntu_llvm_asan.cmake"
+    },
+    {
+        "name": "Ubuntu LLVM + LSAN",
+        "toolchainFile": "toolchain/ubuntu_llvm_lsan.cmake"
     }
 ]

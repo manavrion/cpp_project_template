@@ -10,8 +10,7 @@ jobs:
           - ubuntu-latest
         toolchain:
           - ubuntu_llvm_asan
-        #  - linux_llvm_asan
-        #  - linux_llvm_lsan
+          - ubuntu_llvm_lsan
         #  - linux_llvm_msan
         #  - linux_llvm_tsan
         #  - linux_llvm_ubsan
