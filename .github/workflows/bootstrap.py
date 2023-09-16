@@ -28,3 +28,17 @@ if system == 'Linux':
     sys.stdout.flush()
     os.system('apt update')
     os.system('apt -y install gcc-12 g++-12')
+
+if system == 'Linux':
+    print('Install ninja-build')
+    sys.stdout.flush()
+    os.system('apt update')
+    os.system('apt -y install ninja-build')
+if system == 'MacOS':
+    print('Install ninja-build')
+    sys.stdout.flush()
+    os.system('brew install ninja')
+if system == 'Windows':
+    print('Install ninja-build')
+    sys.stdout.flush()
+    os.system('choco install ninja')
