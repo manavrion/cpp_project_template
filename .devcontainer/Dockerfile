@@ -18,5 +18,5 @@ RUN yes '' | ./llvm.sh 18
 RUN apt -y install libc++-18-dev libc++abi-18-dev
 
 # Prerequisites for building.
-RUN apt -y install make
 RUN apt -y install cmake
+RUN apt -y install ninja-build

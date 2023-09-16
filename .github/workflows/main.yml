@@ -40,10 +40,10 @@ jobs:
         run: sudo python .github/workflows/bootstrap.py ${{ matrix.toolchain }}
 
       - name: Configure ${{ matrix.build_type }}
-        run: cmake -S . -B .build -DCMAKE_TOOLCHAIN_FILE="toolchain/${{ matrix.toolchain }}.cmake" -DCMAKE_BUILD_TYPE=${{ matrix.build_type }}
+        run: cmake -G Ninja -S . -B .build -DCMAKE_TOOLCHAIN_FILE="toolchain/${{ matrix.toolchain }}.cmake" -DCMAKE_BUILD_TYPE=${{ matrix.build_type }}
 
       - name: Build
-        run: cmake --build .build --parallel 8
+        run: cmake --build .build
 
       - name: Test
         run: (cd .build && ctest --extra-verbose)
