@@ -37,7 +37,7 @@ if system == 'Linux':
 if system == 'Darwin':
     print('Install ninja-build')
     sys.stdout.flush()
-    os.system('brew -y install ninja')
+    os.system('brew install ninja')
 if system == 'Windows':
     print('Install ninja-build')
     sys.stdout.flush()
