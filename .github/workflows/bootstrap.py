@@ -34,11 +34,11 @@ if system == 'Linux':
     sys.stdout.flush()
     os.system('apt update')
     os.system('apt -y install ninja-build')
-if system == 'MacOS':
+if system == 'Darwin':
     print('Install ninja-build')
     sys.stdout.flush()
-    os.system('brew install ninja')
+    os.system('brew -y install ninja')
 if system == 'Windows':
     print('Install ninja-build')
     sys.stdout.flush()
-    os.system('choco install ninja')
+    os.system('choco -y install ninja')
