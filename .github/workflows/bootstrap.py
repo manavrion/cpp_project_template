@@ -42,3 +42,4 @@ if system == 'Windows':
     print('Install ninja-build')
     sys.stdout.flush()
     os.system('choco -y install ninja')
+    os.system('choco -y install visualstudio2022buildtools')
