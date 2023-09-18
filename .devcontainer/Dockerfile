@@ -24,6 +24,9 @@ RUN apt -y install ninja-build
 # Use bash in a default shell.
 ENV SHELL /bin/bash
 
+# Reference for creation of a non-root user:
+# https://code.visualstudio.com/remote/advancedcontainers/add-nonroot-user#_creating-a-nonroot-user
+
 # Default non-root user.
 ARG USERNAME=vscode
 ARG USER_UID=1000
