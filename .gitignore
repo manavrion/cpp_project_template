@@ -34,4 +34,6 @@
 # Build
 build
 Testing
-llvm-project
+
+# MSAN
+scripts/llvm-project

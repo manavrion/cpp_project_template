@@ -35,3 +35,6 @@ gh auth login
 ```
 >Dev Containers: Open Folder in Container...
 ```
+
+# Getting started with commands
+

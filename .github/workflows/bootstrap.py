@@ -28,6 +28,10 @@ if system == 'Linux':
     sys.stdout.flush()
     os.system('apt update')
     os.system('apt -y install gcc-12 g++-12')
+  if 'msan' in toolchain:
+    print('Install instrumented libc++')
+    sys.stdout.flush()
+    os.system('./scripts/bootstrap_msan.sh')
 
 if system == 'Linux':
     print('Install ninja-build')
