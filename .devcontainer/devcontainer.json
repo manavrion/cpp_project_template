@@ -12,7 +12,9 @@
                 // Clang-Format
                 "xaver.clang-format",
                 // cmake-format
-                "cheshirekow.cmake-format"
+                "cheshirekow.cmake-format",
+                // Code Spell Checker
+                "streetsidesoftware.code-spell-checker"
             ]
         }
     }

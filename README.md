@@ -14,8 +14,6 @@ Just template.
 
 ### Other
 
-Code Spell Checker - streetsidesoftware.code-spell-checker
-
 Markdown All in One - yzhang.markdown-all-in-one
 
 # Instant start using Codespaces
