@@ -6,5 +6,12 @@
     "clang-format.executable": "clang-format-18",
     "[cpp]": {
         "editor.defaultFormatter": "xaver.clang-format"
-    }
+    },
+    "cSpell.words": [
+        // GitHub words
+        "codespace",
+        "Codespaces",
+        // Author of the template.
+        "manavrion"
+    ]
 }
