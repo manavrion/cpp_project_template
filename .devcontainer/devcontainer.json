@@ -14,7 +14,9 @@
                 // cmake-format
                 "cheshirekow.cmake-format",
                 // Code Spell Checker
-                "streetsidesoftware.code-spell-checker"
+                "streetsidesoftware.code-spell-checker",
+                // Markdown All in One
+                "yzhang.markdown-all-in-one"
             ]
         }
     }

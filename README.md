@@ -1,20 +1,5 @@
 # С++ Project Template
-Just template.
-
-# How to build
-
-1. git clone git@github.com:manavrion/template_repository.git
-2. ./build.sh
-
-# How to test
-
-1. ./test.sh
-
-# Recomended tools
-
-### Other
-
-Markdown All in One - yzhang.markdown-all-in-one
+Template for a C++ project.
 
 # Instant start using Codespaces
 
