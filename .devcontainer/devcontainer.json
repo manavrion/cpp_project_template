@@ -19,6 +19,5 @@
                 "yzhang.markdown-all-in-one"
             ]
         }
-    },
-    "postCreateCommand": "bash scripts/bootstrap_msan.sh"
+    }
 }
