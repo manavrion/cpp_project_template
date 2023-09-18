@@ -12,14 +12,6 @@ Just template.
 
 # Recomended tools
 
-### CMake
-
-CMake - twxs.cmake
-
-CMake Tools - ms-vscode.cmake-tools
-
-cmake-format - cheshirekow.cmake-format
-
 ### Other
 
 Code Spell Checker - streetsidesoftware.code-spell-checker

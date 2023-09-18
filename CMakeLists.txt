@@ -22,8 +22,8 @@ include(ccache)
 
 # Print all variables for debug purposes.
 get_cmake_property(_variableNames VARIABLES)
-list (SORT _variableNames)
-foreach (_variableName ${_variableNames})
+list(SORT _variableNames)
+foreach(_variableName ${_variableNames})
   message(STATUS "Dynamic variable ${_variableName}=${${_variableName}}")
 endforeach()
 

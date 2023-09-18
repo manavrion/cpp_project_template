@@ -10,7 +10,9 @@
                 // CMake Tools
                 "ms-vscode.cmake-tools",
                 // Clang-Format
-                "xaver.clang-format"
+                "xaver.clang-format",
+                // cmake-format
+                "cheshirekow.cmake-format"
             ]
         }
     }
