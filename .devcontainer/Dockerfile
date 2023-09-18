@@ -20,3 +20,23 @@ RUN apt -y install libc++-18-dev libc++abi-18-dev
 # Prerequisites for building.
 RUN apt -y install cmake
 RUN apt -y install ninja-build
+
+# Use bash in a default shell.
+ENV SHELL /bin/bash
+
+# Default non-root user.
+ARG USERNAME=vscode
+ARG USER_UID=1000
+ARG USER_GID=$USER_UID
+
+# Create the user
+RUN groupadd --gid $USER_GID $USERNAME \
+    && useradd --uid $USER_UID --gid $USER_GID -m $USERNAME \
+    # Add sudo support.
+    && apt-get update \
+    && apt-get install -y sudo \
+    && echo $USERNAME ALL=\(root\) NOPASSWD:ALL > /etc/sudoers.d/$USERNAME \
+    && chmod 0440 /etc/sudoers.d/$USERNAME
+
+# Set the default user.
+USER $USERNAME
