@@ -1,0 +1,10 @@
+{
+    // Configuring VS Code's CMake Tools extension.
+    "cmake.configureOnOpen": true,
+    // Configuring VS Code's Clang-Format extension.
+    "editor.formatOnSave": true,
+    "clang-format.executable": "clang-format-18",
+    "[cpp]": {
+        "editor.defaultFormatter": "xaver.clang-format"
+    }
+}

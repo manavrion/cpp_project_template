@@ -8,7 +8,9 @@
                 // C/C++
                 "ms-vscode.cpptools",
                 // CMake Tools
-                "ms-vscode.cmake-tools"
+                "ms-vscode.cmake-tools",
+                // Clang-Format
+                "xaver.clang-format"
             ]
         }
     }

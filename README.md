@@ -12,14 +12,6 @@ Just template.
 
 # Recomended tools
 
-## IDE: VS Code with plugins:
-
-### C++
-
-C/C++ - ms-vscode.cpptools
-
-Clang-Format - xaver.clang-format
-
 ### CMake
 
 CMake - twxs.cmake

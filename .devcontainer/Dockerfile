@@ -21,6 +21,9 @@ RUN apt -y install libc++-18-dev libc++abi-18-dev
 RUN apt -y install cmake
 RUN apt -y install ninja-build
 
+# Prerequisite for VS Code's Clang-Format extension.
+RUN apt -y install clang-format-18
+
 # Use bash in a default shell.
 ENV SHELL /bin/bash
 
