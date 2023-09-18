@@ -10,6 +10,17 @@ print('Run on - ' + system)
 
 sys.stdout.flush()
 
+# Install ninja-build.
+if system == 'Linux':
+    print('Install ninja-build')
+    sys.stdout.flush()
+    os.system('apt update')
+    os.system('apt -y install ninja-build')
+if system == 'Darwin':
+    print('Install ninja-build')
+    sys.stdout.flush()
+    os.system('brew install ninja')
+
 if system == 'Linux':
   if 'llvm' in toolchain and 'gcc' in toolchain:
     print('Broken toolchain!')
@@ -32,13 +43,3 @@ if system == 'Linux':
     print('Install instrumented libc++')
     sys.stdout.flush()
     os.system('./scripts/bootstrap_msan.sh')
-
-if system == 'Linux':
-    print('Install ninja-build')
-    sys.stdout.flush()
-    os.system('apt update')
-    os.system('apt -y install ninja-build')
-if system == 'Darwin':
-    print('Install ninja-build')
-    sys.stdout.flush()
-    os.system('brew install ninja')
