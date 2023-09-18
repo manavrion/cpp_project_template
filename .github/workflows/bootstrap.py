@@ -10,24 +10,36 @@ print('Run on - ' + system)
 
 sys.stdout.flush()
 
+# Install ninja-build.
 if system == 'Linux':
-  if 'clang' in toolchain and 'gcc' in toolchain:
+    print('Install ninja-build')
+    sys.stdout.flush()
+    os.system('apt update')
+    os.system('apt -y install ninja-build')
+if system == 'Darwin':
+    print('Install ninja-build')
+    sys.stdout.flush()
+    os.system('brew install ninja')
+
+if system == 'Linux':
+  if 'llvm' in toolchain and 'gcc' in toolchain:
     print('Broken toolchain!')
     exit(1)
-  if 'clang' in toolchain:
-    print('Install clang')
+  if 'llvm' in toolchain:
+    print('Install llvm')
     sys.stdout.flush()
-    os.system('wget -O - https://apt.llvm.org/llvm-snapshot.gpg.key | sudo apt-key add -')
-    os.system('apt-add-repository "deb http://apt.llvm.org/bionic/ llvm-toolchain-bionic main"')
-    os.system('apt update')
-    os.system('apt install clang-12')
-    os.system('apt install llvm-12')
-    os.system('apt install lld-12')
-    os.system('apt install libc++-12-dev')
-    os.system('apt install libc++abi-12-dev')
+    os.system('apt -y install lsb-release wget software-properties-common gnupg')
+    os.system('wget https://apt.llvm.org/llvm.sh')
+    os.system('chmod +x llvm.sh')
+    os.system('yes '' | ./llvm.sh 18')
+    if 'libcpp' in toolchain:
+      os.system('apt -y install libc++-18-dev libc++abi-18-dev')
   if 'gcc' in toolchain:
     print('Install gcc')
     sys.stdout.flush()
     os.system('apt update')
-    os.system('apt install gcc-10')
-    os.system('apt install g++-10')
+    os.system('apt -y install gcc-12 g++-12')
+  if 'msan' in toolchain:
+    print('Install instrumented libc++')
+    sys.stdout.flush()
+    os.system('./scripts/bootstrap_msan.sh')

@@ -9,25 +9,25 @@ jobs:
         os:
           - ubuntu-latest
         toolchain:
-          - linux_clang
-          - linux_clang_asan
-          - linux_clang_lsan
-        # - linux_clang_msan
-          - linux_clang_tsan
-          - linux_clang_ubsan
-          - linux_gcc
+          - ubuntu_llvm
+          - ubuntu_llvm_libcpp
+          - ubuntu_llvm_asan
+          - ubuntu_llvm_lsan
+        #  - ubuntu_llvm_msan
+        #  - linux_llvm_tsan
+        #  - linux_llvm_ubsan
         build_type:
           - Debug
         include:
           - os: macos-latest
-            toolchain: macos_clang
+            toolchain: macos_llvm
             build_type: Debug
           - os: windows-latest
             toolchain: windows_msvc
             build_type: Debug
           - os: ubuntu-latest
-            toolchain: linux_clang
-            build_type: Release
+            toolchain: ubuntu_gcc
+            build_type: Debug
 
     runs-on: ${{ matrix.os }}
 
@@ -35,15 +35,25 @@ jobs:
       - uses: actions/checkout@v2
 
       # Special step for ubuntu-latest.
-      - name: Bootstrap toolchain ${{ matrix.toolchain }}
+      - name: Bootstrap toolchain ${{ matrix.toolchain }} on Ubuntu
         if: ${{ matrix.os == 'ubuntu-latest' }}
         run: sudo python .github/workflows/bootstrap.py ${{ matrix.toolchain }}
 
+      # Special step for macos-latest.
+      - name: Bootstrap toolchain ${{ matrix.toolchain }} on MacOS
+        if: ${{ matrix.os == 'macos-latest' }}
+        run: python .github/workflows/bootstrap.py ${{ matrix.toolchain }}
+
+      # Special step for windows-latest.
+      - name: Bootstrap toolchain ${{ matrix.toolchain }} on Windows
+        if: ${{ matrix.os == 'windows-latest' }}
+        run: python .github/workflows/bootstrap.py ${{ matrix.toolchain }}
+
       - name: Configure ${{ matrix.build_type }}
-        run: cmake -S . -B .build -DCMAKE_TOOLCHAIN_FILE="toolchain/${{ matrix.toolchain }}.cmake" -DCMAKE_BUILD_TYPE=${{ matrix.build_type }}
+        run: cmake -S . -B build -DCMAKE_TOOLCHAIN_FILE="toolchain/${{ matrix.toolchain }}.cmake" -DCMAKE_BUILD_TYPE=${{ matrix.build_type }}
 
       - name: Build
-        run: cmake --build .build --parallel 8
+        run: cmake --build build
 
       - name: Test
-        run: (cd .build && ctest --extra-verbose)
+        run: (cd build && ctest --extra-verbose)

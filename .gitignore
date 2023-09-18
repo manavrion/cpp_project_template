@@ -32,7 +32,8 @@
 *.app
 
 # Build
-.build
+build
+Testing
 
-# IDEs
-.vscode
+# MSAN
+scripts/llvm-project

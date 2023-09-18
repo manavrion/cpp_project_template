@@ -3,9 +3,9 @@ cmake_minimum_required(VERSION 3.14)
 project(cpp_project_template LANGUAGES CXX)
 
 # Options
-option(CPP_PROJECT_TEMPALTE_BENCHMARKS "Build benchmarks" OFF)
-option(CPP_PROJECT_TEMPALTE_EXAMPLES "Build examples" OFF)
-option(CPP_PROJECT_TEMPALTE_TESTS "Build tests" OFF)
+option(CPP_PROJECT_TEMPALTE_BENCHMARKS "Build benchmarks" ON)
+option(CPP_PROJECT_TEMPALTE_EXAMPLES "Build examples" ON)
+option(CPP_PROJECT_TEMPALTE_TESTS "Build tests" ON)
 
 # Enable ctest
 if(CPP_PROJECT_TEMPALTE_TESTS)
@@ -19,6 +19,13 @@ set_property(GLOBAL PROPERTY USE_FOLDERS ON)
 
 # CCache
 include(ccache)
+
+# Print all variables for debug purposes.
+get_cmake_property(_variableNames VARIABLES)
+list(SORT _variableNames)
+foreach(_variableName ${_variableNames})
+  message(STATUS "Dynamic variable ${_variableName}=${${_variableName}}")
+endforeach()
 
 # Add sub templates. You can paste project_templates/*/CMakeLists.txt here for
 # simple projects and move related files.

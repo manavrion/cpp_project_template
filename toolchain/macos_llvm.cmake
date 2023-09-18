@@ -1,5 +1,5 @@
 list(APPEND CMAKE_MODULE_PATH "${CMAKE_CURRENT_LIST_DIR}")
 
 # Compiler
-set(CMAKE_C_COMPILER msvc)
-set(CMAKE_CXX_COMPILER msvc)
+set(CMAKE_C_COMPILER clang)
+set(CMAKE_CXX_COMPILER clang++)

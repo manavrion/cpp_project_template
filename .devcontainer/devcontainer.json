@@ -6,7 +6,17 @@
         "vscode": {
             "extensions": [
                 // C/C++
-                "ms-vscode.cpptools"
+                "ms-vscode.cpptools",
+                // CMake Tools
+                "ms-vscode.cmake-tools",
+                // Clang-Format
+                "xaver.clang-format",
+                // cmake-format
+                "cheshirekow.cmake-format",
+                // Code Spell Checker
+                "streetsidesoftware.code-spell-checker",
+                // Markdown All in One
+                "yzhang.markdown-all-in-one"
             ]
         }
     }
