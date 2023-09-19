@@ -19,5 +19,7 @@
                 "yzhang.markdown-all-in-one"
             ]
         }
-    }
+    },
+    // Setup ubuntu_llvm_msan toolchain.
+    "onCreateCommand": "toolchain/ubuntu_llvm_msan.sh"
 }
