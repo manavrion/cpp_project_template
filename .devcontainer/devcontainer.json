@@ -16,8 +16,12 @@
                 // Code Spell Checker
                 "streetsidesoftware.code-spell-checker",
                 // Markdown All in One
-                "yzhang.markdown-all-in-one"
+                "yzhang.markdown-all-in-one",
+                // CodeLLDB
+                "vadimcn.vscode-lldb"
             ]
         }
-    }
+    },
+    // Setup ubuntu_llvm_msan toolchain.
+    "onCreateCommand": "toolchain/ubuntu_llvm_msan.sh"
 }

@@ -17,8 +17,11 @@ RUN yes '' | ./llvm.sh 18
 # Prerequisites for the Ubuntu LLVM libcpp toolchain.
 RUN apt -y install libc++-18-dev libc++abi-18-dev
 
+# Install pip since it has more recent cmake.
+RUN apt -y install python3-pip
+
 # Prerequisites for building.
-RUN apt -y install cmake
+RUN pip install cmake
 RUN apt -y install ninja-build
 
 # Prerequisite for VS Code's Clang-Format extension.

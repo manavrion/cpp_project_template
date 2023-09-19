@@ -8,12 +8,12 @@
         "toolchainFile": "toolchain/ubuntu_llvm.cmake"
     },
     {
-        "name": "Ubuntu LLVM + libcpp",
-        "toolchainFile": "toolchain/ubuntu_llvm_libcpp.cmake"
-    },
-    {
         "name": "Ubuntu LLVM + ASAN",
         "toolchainFile": "toolchain/ubuntu_llvm_asan.cmake"
+    },
+    {
+        "name": "Ubuntu LLVM + libcpp",
+        "toolchainFile": "toolchain/ubuntu_llvm_libcpp.cmake"
     },
     {
         "name": "Ubuntu LLVM + LSAN",
@@ -22,5 +22,13 @@
     {
         "name": "Ubuntu LLVM + MSAN",
         "toolchainFile": "toolchain/ubuntu_llvm_msan.cmake"
+    },
+    {
+        "name": "Ubuntu LLVM + TSAN",
+        "toolchainFile": "toolchain/ubuntu_llvm_tsan.cmake"
+    },
+    {
+        "name": "Ubuntu LLVM + UBSAN",
+        "toolchainFile": "toolchain/ubuntu_llvm_ubsan.cmake"
     }
 ]

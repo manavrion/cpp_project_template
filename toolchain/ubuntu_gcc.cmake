@@ -1,6 +1,14 @@
 # Compiler
-set(CMAKE_C_COMPILER gcc-12)
-set(CMAKE_CXX_COMPILER g++-12)
+set(CMAKE_C_COMPILER
+    gcc-12
+    CACHE STRING "")
+set(CMAKE_CXX_COMPILER
+    g++-12
+    CACHE STRING "")
+
+# set(... CACHE STRING "") is needed to propagate flags to CMakeCache.txt file.
+# It makes this infirmation available for external tools like VS's CMake Tools
+# extension.
 
 # Archiver
 set(CMAKE_AR gcc-ar-12)

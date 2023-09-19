@@ -3,17 +3,13 @@ Template for a C++ project.
 
 # Instant start using Codespaces
 
-This repository provides integration with Codespaces.
+This repository provides integration with [Codespaces](https://github.com/features/codespaces).
 
-Just click the `<> Code` button, then click the `Codespaces` tab and then click the `Create codespace on main` button.
+**Just click the `<> Code` button, then click the `Codespaces` tab and then click the `Create codespace on main` button.**
 
 All things needed for development will be configured automatically.
 
-Refer to `Getting started with Visual Studio Code` if you want the same experience without limitations.
-
-References:
- - [Codespaces](https://github.com/features/codespaces)
- - [Creating a codespace for a repository](https://docs.github.com/en/codespaces/developing-in-codespaces/creating-a-codespace-for-a-repository#creating-a-codespace-for-a-repository)
+Refer to `Getting started with Visual Studio Code` if you want the same experience on your own machine.
 
 # Getting started with Visual Studio Code
 

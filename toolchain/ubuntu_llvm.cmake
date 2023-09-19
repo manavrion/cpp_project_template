@@ -1,6 +1,14 @@
 # Compiler
-set(CMAKE_C_COMPILER clang-18)
-set(CMAKE_CXX_COMPILER clang++-18)
+set(CMAKE_C_COMPILER
+    clang-18
+    CACHE STRING "")
+set(CMAKE_CXX_COMPILER
+    clang++-18
+    CACHE STRING "")
+
+# set(... CACHE STRING "") is needed to propagate flags to CMakeCache.txt file.
+# It makes this infirmation available for external tools like VS's CMake Tools
+# extension.
 
 # Archiver
 set(CMAKE_AR llvm-ar-18)

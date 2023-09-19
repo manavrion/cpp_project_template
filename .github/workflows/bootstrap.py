@@ -39,7 +39,8 @@ if system == 'Linux':
     sys.stdout.flush()
     os.system('apt update')
     os.system('apt -y install gcc-12 g++-12')
-  if 'msan' in toolchain:
-    print('Install instrumented libc++')
-    sys.stdout.flush()
-    os.system('./scripts/bootstrap_msan.sh')
+
+if 'ubuntu_llvm_msan' in toolchain:
+  print('Install instrumented libc++ for ubuntu_llvm_msan toolchain')
+  sys.stdout.flush()
+  os.system('./toolchain/ubuntu_llvm_msan.sh')
