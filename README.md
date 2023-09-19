@@ -34,7 +34,27 @@ gh auth login
 
 # Getting started with commands
 
-TODO
+## Configure
+
+```
+cmake -G Ninja -S . -B build -DCMAKE_TOOLCHAIN_FILE=toolchain/<Toolchain> -DCMAKE_BUILD_TYPE=<Build type>
+```
+
+Where:
+* Build type - `Debug` | `Release` | `MinSizeRel` | `RelWithDebInfo`.
+* Toolchain - see the `toolchain` folder. Example: `ubuntu_llvm.cmake`.
+
+## Build
+
+```
+cmake --build build
+```
+
+## Test
+
+```
+ctest --extra-verbose --test-dir build
+```
 
 # Known issues
 
