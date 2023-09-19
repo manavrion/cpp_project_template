@@ -34,3 +34,8 @@ gh auth login
 
 # Getting started with commands
 
+TODO
+
+# Known issues
+
+* Start of a codespace or a local VSC takes 10+ min.
