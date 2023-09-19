@@ -5,8 +5,7 @@ include(ubuntu_llvm)
 
 # * -fsanitize=undefined enables UBSAN.
 
-set(CPP_PROJECT_TEMPLATE_UBSAN_FLAGS
-    "-fsanitize=address -fno-omit-frame-pointer -fno-optimize-sibling-calls")
+set(CPP_PROJECT_TEMPLATE_UBSAN_FLAGS "-fsanitize=undefined")
 
 set(CMAKE_C_FLAGS_INIT "${CPP_PROJECT_TEMPLATE_UBSAN_FLAGS}")
 set(CMAKE_CXX_FLAGS_INIT "${CPP_PROJECT_TEMPLATE_UBSAN_FLAGS}")
