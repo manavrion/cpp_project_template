@@ -16,7 +16,9 @@
                 // Code Spell Checker
                 "streetsidesoftware.code-spell-checker",
                 // Markdown All in One
-                "yzhang.markdown-all-in-one"
+                "yzhang.markdown-all-in-one",
+                // CodeLLDB
+                "vadimcn.vscode-lldb"
             ]
         }
     },
