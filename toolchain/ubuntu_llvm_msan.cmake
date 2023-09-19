@@ -20,11 +20,11 @@ set(CPP_PROJECT_TEMPLATE_MSAN_FLAGS
 # https://github.com/llvm/llvm-project/blob/main/libcxx/docs/UsingLibcxx.rst#using-a-custom-built-libc
 
 set(CPP_PROJECT_TEMPLATE_INSTRUMENTED_LIBCPP_COMPILER_FLAGS
-    "-nostdinc++ -nostdlib++ -isystem /workspaces/cpp_project_template/scripts/llvm-project/build/include/c++/v1"
+    "-nostdinc++ -nostdlib++ -isystem ${CMAKE_CURRENT_LIST_DIR}/../scripts/llvm-project/build/include/c++/v1"
 )
 
 set(CPP_PROJECT_TEMPLATE_INSTRUMENTED_LIBCPP_LINKER_FLAGS
-    "-nostdinc++ -nostdlib++ -isystem /workspaces/cpp_project_template/scripts/llvm-project/build/include/c++/v1 -L /workspaces/cpp_project_template/scripts/llvm-project/build/lib -Wl,-rpath,/workspaces/cpp_project_template/scripts/llvm-project/build/lib -lc++"
+    "-nostdinc++ -nostdlib++ -isystem ${CMAKE_CURRENT_LIST_DIR}/../scripts/llvm-project/build/include/c++/v1 -L ${CMAKE_CURRENT_LIST_DIR}/../scripts/llvm-project/build/lib -Wl,-rpath,${CMAKE_CURRENT_LIST_DIR}/../scripts/llvm-project/build/lib -lc++"
 )
 
 set(CMAKE_C_FLAGS_INIT
