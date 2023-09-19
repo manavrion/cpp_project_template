@@ -1,9 +1,9 @@
 list(APPEND CMAKE_MODULE_PATH "${CMAKE_CURRENT_LIST_DIR}")
 include(ubuntu_llvm)
 
-# LSAN flags:
-# Reference https://clang.llvm.org/docs/LeakSanitizer.html#id2
-# -fsanitize=leak enables LSAN.
+# LSAN flags, https://clang.llvm.org/docs/LeakSanitizer.html#usage
+
+# * -fsanitize=leak enables LSAN.
 set(CPP_PROJECT_TEMPLATE_LSAN_FLAGS "-fsanitize=leak")
 
 set(CMAKE_C_FLAGS_INIT "${CPP_PROJECT_TEMPLATE_LSAN_FLAGS}")
