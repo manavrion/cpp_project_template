@@ -28,6 +28,9 @@ jobs:
           - os: ubuntu-latest
             toolchain: ubuntu_gcc
             build_type: Debug
+          - os: ubuntu-latest
+            toolchain: ubuntu_llvm
+            build_type: Release
 
     runs-on: ${{ matrix.os }}
 
@@ -39,14 +42,9 @@ jobs:
         if: ${{ matrix.os == 'ubuntu-latest' }}
         run: sudo python .github/workflows/bootstrap.py ${{ matrix.toolchain }}
 
-      # Special step for macos-latest.
+      # Special step for macos-latest and windows-latest.
       - name: Bootstrap toolchain ${{ matrix.toolchain }} on MacOS
-        if: ${{ matrix.os == 'macos-latest' }}
-        run: python .github/workflows/bootstrap.py ${{ matrix.toolchain }}
-
-      # Special step for windows-latest.
-      - name: Bootstrap toolchain ${{ matrix.toolchain }} on Windows
-        if: ${{ matrix.os == 'windows-latest' }}
+        if: ${{ matrix.os != 'ubuntu-latest' }}
         run: python .github/workflows/bootstrap.py ${{ matrix.toolchain }}
 
       - name: Configure ${{ matrix.build_type }}
@@ -56,4 +54,4 @@ jobs:
         run: cmake --build build
 
       - name: Test
-        run: (cd build && ctest --extra-verbose)
+        run: ctest --extra-verbose --test-dir build
