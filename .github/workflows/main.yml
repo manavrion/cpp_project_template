@@ -50,7 +50,7 @@ jobs:
         run: python .github/workflows/bootstrap.py ${{ matrix.toolchain }}
 
       - name: Configure ${{ matrix.build_type }}
-        run: cmake -S . -B build -DCMAKE_TOOLCHAIN_FILE="toolchain/${{ matrix.toolchain }}.cmake" -DCMAKE_BUILD_TYPE=${{ matrix.build_type }}
+        run: cmake -S . -B build -DCMAKE_TOOLCHAIN_FILE="toolchain/${{ matrix.toolchain }}.cmake" -DCMAKE_BUILD_TYPE=${{ matrix.build_type }} --debug-output --debug-trycompile
 
       - name: Build
         run: cmake --build build
